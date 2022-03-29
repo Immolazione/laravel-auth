@@ -79,8 +79,9 @@
                 </div>
             @endif
 
-            <div>
+            <div class="contents">
                 <h1>Sito in manutenzione</h1>
+                {{-- <div id="root"></div> COLLEGARE VUE PER ROUTES NON ADMIN NON REGISTRATA --}}
             </div>
         </div>
     </body>
