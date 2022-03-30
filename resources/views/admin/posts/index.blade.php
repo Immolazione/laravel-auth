@@ -23,7 +23,14 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->created_at }}</td>
-                    <td class="d-flex justify-content-end align-items-center">Actions</td>
+                    <td class="d-flex justify-content-end align-items-center">
+                      <a href="{{ route('admin.posts.edit', $post->id)}}">Modifica</a>
+                      <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" value="Delete">Cancella</button>
+                      </form>
+                    </td>
                   </tr>
                 @empty
                 <tr><td colspan=""><h3>Non ci sono posts</h3></td></tr>
