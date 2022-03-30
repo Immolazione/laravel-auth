@@ -62,6 +62,9 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <!-- Script -->
+        <script src="{{ asset('js/front.js') }}" defer></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,8 +83,8 @@
             @endif
 
             <div class="contents">
-                <h1>Sito in manutenzione</h1>
-                {{-- <div id="root"></div> COLLEGARE VUE PER ROUTES NON ADMIN NON REGISTRATA --}}
+                {{-- <h1>Sito in manutenzione</h1> --}}
+                <div id="root"></div>
             </div>
         </div>
     </body>
