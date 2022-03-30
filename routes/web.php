@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['register' => true]);
 
 Route::middleware('auth')
 ->prefix('admin')
