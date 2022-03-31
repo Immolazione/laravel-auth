@@ -37,7 +37,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $post = new Post();
+
+        $post->title = $data['title'];
+        $post->slug = $data['slug'];
+        $post->created_at = $data['created_at'];
+
+        $post->save();
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -46,9 +56,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -59,7 +69,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -71,7 +83,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $data = $request->all();
+        $post->update($data);
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
