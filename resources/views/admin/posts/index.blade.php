@@ -5,6 +5,7 @@
     <div class="container">
         <header>
             <h1>I miei post</h1>
+            <a href="{{ route('admin.posts.create') }}">Crea Post</a>
             <table class="table">
                 <thead>
                   <tr>
@@ -24,6 +25,7 @@
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td class="d-flex justify-content-end align-items-center">
+                      {{-- <a href="{{ route('admin.posts.show'), $post->id }}">Dettagli</a> --}}
                       <a href="{{ route('admin.posts.edit', $post->id)}}">Modifica</a>
                       <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
                         @method('delete')
